@@ -6,6 +6,7 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.LocalActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -13,25 +14,30 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.material3.Button
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Alignment.Companion.CenterHorizontally
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.weatherapp.ui.theme.WeatherAppTheme
 
-class MainActivity : ComponentActivity() {
+class MapActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
             WeatherAppTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    HomePage(modifier = Modifier.padding(innerPadding))
+                    MapPage(modifier = Modifier.padding(innerPadding))
                 }
             }
         }
@@ -40,37 +46,20 @@ class MainActivity : ComponentActivity() {
 
 @Preview(showBackground = true)
 @Composable
-fun HomePage(modifier: Modifier = Modifier) {
-
-    val activity = LocalActivity.current as Activity
+fun MapPage(modifier: Modifier = Modifier) {
 
     Column(
-        modifier = modifier
-            .padding(16.dp)
-            .fillMaxSize(),
-        verticalArrangement = Arrangement.Center,
-        horizontalAlignment = CenterHorizontally
+        modifier = modifier.fillMaxSize()
+            .background(Color.Green)
+            .wrapContentSize(Alignment.Center)
     ) {
-
         Text(
-            text = "Logado com sucesso!!!",
-            fontSize = 24.sp,
+            text = "Mapa",
+            fontWeight = FontWeight.Bold,
+            color = Color.White,
+            modifier = modifier.align(CenterHorizontally),
+            textAlign = TextAlign.Center,
+            fontSize = 20.sp
         )
-
-        Spacer(modifier = modifier.size(24.dp))
-
-        Row(modifier = modifier) {
-            Button(onClick = {
-                activity.finish()
-
-            }
-
-
-            ) {
-                Text("Sair")
-            }
-
-        }
-
     }
 }
