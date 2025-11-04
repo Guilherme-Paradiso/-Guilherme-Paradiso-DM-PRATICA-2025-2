@@ -26,18 +26,3 @@ sealed class BottomNavItem(
     data object MapButton :
         BottomNavItem("Mapa", Icons.Default.LocationOn, Route.Map)
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
