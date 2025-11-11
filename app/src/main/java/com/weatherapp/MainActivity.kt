@@ -47,7 +47,7 @@ class MainActivity : ComponentActivity() {
             val navController = rememberNavController()
             val currentRoute = navController.currentBackStackEntryAsState()
             val showButton = currentRoute.value?.destination?.
-            hasRoute(Route.List::class) == true
+                hasRoute(Route.List::class) == true
             val launcher = rememberLauncherForActivityResult(contract =
                 ActivityResultContracts.RequestPermission(), onResult = {} )
             WeatherAppTheme {
