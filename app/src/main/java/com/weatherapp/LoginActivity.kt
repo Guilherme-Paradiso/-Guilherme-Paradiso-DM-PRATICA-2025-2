@@ -114,7 +114,7 @@ fun LoginPage(modifier: Modifier = Modifier) {
 
 
             {
-                Text("Login")
+                Text("Login" )
             }
 
             Spacer(modifier = modifier.size(24.dp))
