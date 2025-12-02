@@ -35,6 +35,7 @@ import androidx.compose.ui.unit.sp
 import com.google.firebase.Firebase
 import com.google.firebase.auth.auth
 import com.weatherapp.ui.theme.WeatherAppTheme
+import kotlin.text.isNotEmpty
 
 class RegisterActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -126,7 +127,7 @@ fun RegisterPage(modifier: Modifier = Modifier) {
                             } else {
                                 Toast.makeText(activity,
                                     "Registro FALHOU!", Toast.LENGTH_LONG).show()
-                            }
+                          }
                         }
 
                 },

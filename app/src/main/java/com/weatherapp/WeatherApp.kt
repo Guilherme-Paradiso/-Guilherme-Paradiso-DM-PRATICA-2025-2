@@ -1,20 +1,15 @@
-package com.weatherapp.model
+package com.weatherapp
 
 import android.app.Application
 import android.content.Intent
-import android.content.Intent.FLAG_ACTIVITY_CLEAR_TASK
-import android.content.Intent.FLAG_ACTIVITY_NEW_TASK
-import android.content.Intent.FLAG_ACTIVITY_SINGLE_TOP
 import com.google.firebase.Firebase
 import com.google.firebase.auth.auth
-import com.weatherapp.LoginActivity
-import com.weatherapp.MainActivity
 
 class WeatherApp : Application() {
 
-    val FLAGS = FLAG_ACTIVITY_SINGLE_TOP or // Não cria atividade se no topo
-            FLAG_ACTIVITY_NEW_TASK or // Cria nova tarefa
-            FLAG_ACTIVITY_CLEAR_TASK // Limpa o backstack
+    val FLAGS = Intent.FLAG_ACTIVITY_SINGLE_TOP or // Não cria atividade se no topo
+            Intent.FLAG_ACTIVITY_NEW_TASK or // Cria nova tarefa
+            Intent.FLAG_ACTIVITY_CLEAR_TASK // Limpa o backstack
     override fun onCreate() {
         super.onCreate()
         Firebase.auth.addAuthStateListener { firebaseAuth ->
