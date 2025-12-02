@@ -65,9 +65,13 @@ class MainActivity : ComponentActivity() {
                     topBar = {
                         @OptIn(ExperimentalMaterial3Api::class)
                         TopAppBar(
-                            title = { Text("Bem-vindo/a!") },
+                            title = {
+                                val name = viewModel.user?.name?:"[carregando...]"
+                                Text("Bem-vindo/a! $name")
+                            },
 
-                            actions = {
+
+                                    actions = {
 
                                 IconButton(onClick = {
                                     Firebase.auth.signOut()
